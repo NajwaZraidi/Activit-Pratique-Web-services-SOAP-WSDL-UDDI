@@ -1,11 +1,14 @@
 package ma.enset.ws;
 
-import javax.jws.WebMethod;
-import javax.jws.WebParam;
-import javax.jws.WebService;
+
+import jakarta.jws.WebMethod;
+import jakarta.jws.WebParam;
+import jakarta.jws.WebService;
+
 import java.util.Date;
 import java.util.List;
 
+//POJO Plaio Old Java Object
 @WebService(serviceName="BanqueWS")
 public class BanqueService {
     @WebMethod(operationName="ConversionEuroToDh")
@@ -13,7 +16,7 @@ public class BanqueService {
         return mt*11.3;
     }
     @WebMethod
-    public Compte getCompte(int code){
+    public Compte getCompte(@WebParam(name="code") int code){
         return  new Compte(code,Math.random()*65000,new Date());
     }
     @WebMethod
